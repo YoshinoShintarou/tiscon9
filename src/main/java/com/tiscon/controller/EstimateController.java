@@ -73,11 +73,21 @@ public class EstimateController {
      * @param userOrderForm 顧客が入力した見積もり依頼情報
      * @param model         遷移先に連携するデータ
      * @return 遷移先
-     */
+     */ 
     @PostMapping(value = "submit", params = "confirm")
     String confirm(UserOrderForm userOrderForm, Model model) {
+        
+    Integer boxes = Integer.parseInt(userOrderForm.getBox());
+    Integer bed = Integer.parseInt(userOrderForm.getBed());
+    Integer bicycle = Integer.parseInt(userOrderForm.getBicycle());
+    Integer washingmachine = Integer.parseInt(userOrderForm.getWashingMachine());
+
+
+    Integer totalboxes = boxes * estimateDAO.getBoxPerPackage(1) + bed * estimateDAO.getBoxPerPackage(2) +bicycle * estimateDAO.getBoxPerPackage(3) +washingmachine * estimateDAO.getBoxPerPackage(4);
 
         model.addAttribute("prefectures", estimateDAO.getAllPrefectures());
+
+        userOrderForm.setTotalBoxes(totalboxes.toString());
         model.addAttribute("userOrderForm", userOrderForm);
         return "confirm";
     }
