@@ -31,11 +31,11 @@
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
         </div>
         <div class="form-group">
-          <label for="tel">連絡先TEL</label>
+          <label for="tel">連絡先TEL（半角で入力してください、ハイフン無し 例:0901233456）</label>
           <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
         </div>
         <div class="form-group">
-          <label for="email">連絡先メールアドレス</label>
+          <label for="email">連絡先メールアドレス（半角で入力してください）</label>
           <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
         </div>
         <div class="sub-title">集荷元・お届け先</div>
@@ -72,7 +72,7 @@
       <fieldset>
       <div class="sub-title">お荷物情報</div>
         <div class="form-group">
-          <label for="box">段ボールの個数</label>
+          <label for="box">段ボールの個数（半角で入力してください）</label>
           <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
         </div>
         <div class="form-group">
